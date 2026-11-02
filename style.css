@@ -1,0 +1,83 @@
+/* Route weather study. A quiet light page so the maps carry the colour: one blue for actions, cool greys for the rest. */
+:root {
+  --bg: #f3f5f7;
+  --panel: #ffffff;
+  --ink: #1b2430;
+  --ink-2: #57626f;
+  --rule: #d8dee4;
+  --accent: #1d5fa8;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6eef8;
+  --ok: #1e7a4c;
+  --no: #a8471b;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--font); }
+main { max-width: 1060px; margin: 0 auto; padding: 28px 24px 48px; }
+h1 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 14px; text-wrap: balance; }
+h2 { font-size: 1.3rem; line-height: 1.25; margin: 0 0 10px; text-wrap: balance; }
+p { margin: 0 0 12px; }
+.loading { color: var(--ink-2); padding: 40px 0; }
+.screen { max-width: 700px; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 28px 32px; }
+.screen ul { padding-left: 1.2em; margin: 0 0 14px; }
+.screen li { margin: 4px 0; }
+.muted { color: var(--ink-2); }
+.small { font-size: 0.9rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 20px; }
+button, .button {
+  font: 600 1rem/1 var(--font); border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  padding: 13px 22px; min-height: 46px; cursor: pointer;
+}
+button.secondary { background: var(--panel); color: var(--accent); }
+button:disabled { opacity: 0.45; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #f2a33a; outline-offset: 2px; }
+label.check { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; cursor: pointer; }
+label.check input { margin-top: 4px; width: 18px; height: 18px; }
+fieldset { border: 0; padding: 0; margin: 0 0 8px; }
+legend { font-weight: 600; margin-bottom: 8px; }
+.options label { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; margin: 6px 0; cursor: pointer; }
+.options label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.note { font-size: 0.92rem; color: var(--ink-2); border-left: 3px solid var(--rule); padding-left: 12px; }
+
+/* trial: the map with the bright stretch or spot, the view's key beside it, the question below */
+.trial-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 10px; color: var(--ink-2); font-size: 0.92rem; }
+.trial-head strong { color: var(--ink); font-size: 1rem; }
+.trial { display: grid; grid-template-columns: 720px 250px; gap: 20px; align-items: start; }
+.map { width: 720px; height: 480px; border-radius: 6px; overflow: hidden; background: #d4dadc; box-shadow: 0 0 0 1px var(--rule); }
+.map img { display: block; width: 720px; height: 480px; }
+.key { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 10px; }
+.key .key-title { font-weight: 600; font-size: 0.85rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.key img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.question { grid-column: 1 / -1; background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; }
+.question .q { font-size: 1.12rem; font-weight: 600; margin-bottom: 12px; }
+.answers { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.answers button { min-width: 150px; }
+.answers input[type=number] { font: 600 1.1rem var(--font); width: 120px; padding: 11px 12px; border: 1px solid var(--rule); border-radius: 8px; }
+.answers .unit { color: var(--ink-2); }
+.answers .hint { color: var(--no); font-size: 0.92rem; min-height: 1.2em; }
+.feedback { margin-top: 14px; padding: 12px 14px; border-radius: 8px; background: var(--accent-soft); }
+.feedback.ok strong { color: var(--ok); }
+.feedback.no strong { color: var(--no); }
+
+/* a view's introduction */
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 24px; align-items: start; max-width: 860px;
+  background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 26px 30px; }
+.intro ol { padding-left: 1.2em; margin: 0 0 12px; }
+.intro li { margin: 6px 0; }
+
+/* ranking the views */
+.rank-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 14px 0 6px; }
+.rank-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 8px; display: grid; gap: 8px; }
+.rank-card img { width: 100%; height: auto; border-radius: 4px; display: block; }
+.rank-card .letter { font-weight: 700; }
+.rank-card select { font: 500 0.95rem var(--font); padding: 8px; border-radius: 6px; border: 1px solid var(--rule); width: 100%; }
+textarea { width: 100%; min-height: 90px; font: 400 1rem/1.4 var(--font); padding: 10px; border: 1px solid var(--rule); border-radius: 8px; }
+pre.data { max-height: 260px; overflow: auto; background: #0f1720; color: #e2e8f0; padding: 12px; border-radius: 8px; font-size: 0.8rem; white-space: pre-wrap; word-break: break-all; }
+
+#too-small { position: fixed; inset: 0; background: rgba(243, 245, 247, 0.97); display: grid; place-items: center; z-index: 10; padding: 24px; }
+#too-small[hidden] { display: none; }
+.too-small-box { max-width: 520px; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 24px 28px; }
+footer.credits { margin-top: 28px; color: var(--ink-2); font-size: 0.82rem; }
+@media (prefers-reduced-motion: no-preference) { button { transition: background-color 0.12s, color 0.12s; } }

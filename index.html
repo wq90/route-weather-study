@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading weather along a ship's route</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app" aria-live="polite">
+  <p class="loading">Loading the study…</p>
+</main>
+<div id="too-small" hidden>
+  <div class="too-small-box">
+    <h2>Please use a larger window</h2>
+    <p>The maps in this study need a window at least <span id="min-size"></span> pixels wide and tall. Please enlarge the
+    window or use a computer. Your progress is kept.</p>
+  </div>
+</div>
+<noscript><p class="loading">This study needs JavaScript.</p></noscript>
+<script src="config.js"></script>
+<script src="study.js"></script>
+</body>
+</html>

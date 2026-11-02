@@ -1,0 +1,127 @@
+{
+ "version": 1,
+ "generated": "2026-11-02T00:25:37.422Z",
+ "views": [
+  "strap",
+  "weather",
+  "strokes",
+  "symbols",
+  "rose"
+ ],
+ "image": {
+  "width": 1440,
+  "height": 960,
+  "cssWidth": 720,
+  "cssHeight": 480
+ },
+ "sets": [
+  [
+   "D01",
+   "D02",
+   "S01",
+   "E01",
+   "E02",
+   "H01",
+   "H02"
+  ],
+  [
+   "D03",
+   "D04",
+   "S02",
+   "E03",
+   "E04",
+   "H03",
+   "H04"
+  ],
+  [
+   "D05",
+   "D06",
+   "S03",
+   "E05",
+   "E06",
+   "H05",
+   "H06"
+  ],
+  [
+   "D07",
+   "D08",
+   "S04",
+   "E07",
+   "E08",
+   "H07",
+   "H08"
+  ],
+  [
+   "D09",
+   "D10",
+   "S05",
+   "E09",
+   "E10",
+   "H09",
+   "H10"
+  ]
+ ],
+ "practice": [
+  {
+   "id": "P1",
+   "task": "dir",
+   "answers": {
+    "strap": "ahead",
+    "weather": "ahead",
+    "strokes": "ahead",
+    "symbols": "ahead",
+    "rose": "ahead"
+   }
+  },
+  {
+   "id": "P2",
+   "task": "eff",
+   "answers": {
+    "strap": "slows",
+    "weather": "slows",
+    "strokes": "slows",
+    "symbols": "slows",
+    "rose": "slows"
+   }
+  },
+  {
+   "id": "P3",
+   "task": "hgt",
+   "answers": {
+    "strap": 1.2,
+    "weather": 1.2,
+    "strokes": 1.2,
+    "symbols": 1.2,
+    "rose": 1.2
+   }
+  },
+  {
+   "id": "P4",
+   "task": "dir",
+   "answers": {
+    "strap": "behind",
+    "weather": "behind",
+    "strokes": "behind",
+    "symbols": "behind",
+    "rose": "behind"
+   }
+  },
+  {
+   "id": "P5",
+   "task": "eff",
+   "answers": {
+    "strap": "helps",
+    "weather": "helps",
+    "strokes": "helps",
+    "symbols": "helps",
+    "rose": "helps"
+   }
+  }
+ ],
+ "attentionCheck": {
+  "block": 2,
+  "after": 3,
+  "item": "P1",
+  "answer": "side"
+ }
+}
