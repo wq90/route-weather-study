@@ -298,7 +298,8 @@
       };
       S.records.push(rec);
       save();
-      if (spec.kind === "practice") return feedback(spec, answer);
+      // once the practice answer is kept, a reload goes on to the timed questions instead of asking it again
+      if (spec.kind === "practice") { S.screen = "trial"; S.trialIdx = 0; save(); return feedback(spec, answer); }
       nextTrial();
     };
     if (spec.task === "hgt") {
@@ -329,7 +330,7 @@
     var fb = document.getElementById("fb");
     fb.innerHTML = '<div class="feedback ' + (ok ? "ok" : "no") + '"><strong>' + (ok ? "Correct." : "Not quite.") + "</strong> The answer is " + esc(shown) + ". " +
       esc(PRACTICE_WHY[spec.item] || "") + '<div class="actions"><button id="go">Start the timed questions</button></div></div>';
-    document.getElementById("go").onclick = function () { S.trialIdx = 0; go("trial"); };
+    document.getElementById("go").onclick = function () { route(); };
   }
 
   function nextTrial() {
